@@ -1,0 +1,103 @@
+body {
+    background-color: #3b2f2f; /* Коричневый фон */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh; /* Высота на весь экран */
+    font-family: 'Georgia', serif;
+    color: #3E3E3E; /* Цвет текста */
+    line-height: 1.6;
+    margin: 0; /* Убираем отступы */
+    display: flex;
+    justify-content: center; /* Центрируем контейнер */
+    align-items: center; /* Центрируем контейнер */
+}
+
+.container {
+    background-color: #2c3e50; /* Тёмный фон контейнера */
+    padding: 30px;
+    border-radius: 10px; /* Скруглённые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    max-width: 400px;
+    width: 100%;
+    text-align: center; /* Центровка содержимого */
+}
+
+h1 {
+    font-size: 36px;
+    color: #edce7a; /* Золотистый текст */
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2, h3 {
+    font-family: 'Times New Roman', serif;
+    color: #4B3C2D;
+    text-transform: uppercase;
+    border-bottom: 2px solid #D9BBA8;
+    padding-bottom: 10px;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+.custom-shadow {
+    box-shadow: 5px 5px 25px 19px #000000;
+}
+
+.product_id {
+    color: gray;
+    font-size: 15px;
+}
+
+.badge.bg-warning.text-dark {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+    box-shadow: 2px 2px 15px 9px #000000;
+}
+
+.badge-banner {
+    top: 80%;
+    border-radius: 15px;
+    font-size: 0.7rem;
+}
+
+p {
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+a {
+    color: #6A5ACD;
+    text-decoration: none;
+    border-bottom: 1px solid #6A5ACD;
+    transition: border-bottom 0.3s;
+}
+
+a:hover {
+    border-bottom: 2px solid #D9BBA8;
+}
+
+.button {
+    background-color: #4B3C2D;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #6A5ACD;
+}
