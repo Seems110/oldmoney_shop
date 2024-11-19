@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../deps/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../deps/css/my_css.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../deps/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../deps/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../deps/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../deps/favicon/site.webmanifest">
+    <title>Каталог</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">Главная</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Информация
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item text-white" href="../delivery.html">Доставка и оплата</a></li>
+                                <li><a class="dropdown-item text-white" href="../contacts.html">Контактная информация</a></li>
+                                <li><a class="dropdown-item text-white" href="../about.html">Про нас</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  text-white" href="../carts/cart.html">Корзина</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  text-white" href="../users/login.html">Войти</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Мой профиль
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item  text-white" href="../carts/cart.html">Корзина</a></li>
+                                <li><a class="dropdown-item  text-white" href="../users/profile.html">Личный кабинет</a>
+                                </li>
+                                <li><a class="dropdown-item  text-white" href="#">Админ панель</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item  text-white" href="#">Выйти</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <!-- Каталог и корзина с фиксированным расположением на странице -->
+            <div class="row mt-1 position-fixed z-3">
+                <!-- Каталог -->
+                <div class="dropdown mb-2">
+                    <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Каталог
+                        <img class="mx-1" src="../deps/icons/grid-fill.svg" alt="Catalog Icon" width="16"
+                            height="16">
+                    </button>
+                    <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        <li><a class="dropdown-item text-white" href="catalog.html">ВСЯ ОДЕЖДА</a></li>
+                        <!-- какой безграмотный написал через Е -->
+                        <li><a class="dropdown-item text-white" href="boots.html">обувь</a></li>
+                        <li><a class="dropdown-item text-white" href="wlepanci.html">шлепанцы</a></li>
+                        <li><a class="dropdown-item text-white" href="outwear.html">верхная одежда </a></li>
+                        <li><a class="dropdown-item text-white" href="shirt.html">рубашки</a></li>
+                        <li><a class="dropdown-item text-white" href="pants.html">штаны</a></li>
+                        <li><a class="dropdown-item text-white" href="accsessories.html">Акссесуары</a></li>
+                    </ul>
+                </div>
+                <!-- Значек корзины, вызывает модальное окно -->
+                <div>
+                    <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton" aria-expanded="false">
+                        <img class="mx-1" src="../deps/icons/basket2-fill.svg" alt="Catalog Icon" width="24"
+                            height="24">
+                        <span>0</span>
+                    </button>
+                </div>
+                <!-- Разметка модального окна корзины -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h3 class="text-center mb-4">Корзина</h3>
+                                <div class="container" id="cart-items-container">
+                                    <!-- Разметка корзины -->
+                                    <div class="card mb-3 text-bg-light shadow-lg">
+                                        <div class="card-header">
+                                            <h5 class="card-title">Товар</h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="row text-center">
+                                                    <div class="col p-0">
+                                                        <div class="input-group">
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-dark btn-sm decrement"
+                                                                    data-cart-id="" data-cart-change-url="">-</button>
+                                                            </span>
+                                                            <input type="text" class="form-control number" value="1"
+                                                                readonly>
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-dark btn-sm increment"
+                                                                    data-cart-id="" data-cart-change-url="">+</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col p-0">
+                                                        <p>x 100.00 = </p>
+                                                    </div>
+                                                    <div class="col p-0"><strong>100.00 $</strong></div>
+                                                    <div class="col p-0">
+                                                        <a href="#" class="remove-from-cart" data-cart-id="">
+                                                            <img class="mx-1" src="../deps/icons/trash3-fill.svg"
+                                                                alt="Catalog Icon" width="16" height="16">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card mb-3 shadow-lg">
+                                        <div class="card-footer">
+                                            <p class="float-left">Итого <strong>1</strong> товар(а) на сумму</p>
+                                            <h4 class="float-left"><strong>100.00 $</strong></h4>
+                                        </div>
+                                    </div>
+                                    <!-- Закончилась разметка корзины -->
+                                </div>
+                                <a class="btn btn-dark" href="../orders/create_order.html">
+                                    Оформить заказ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Закончилась разметка модального окна -->
+            </div>
+        </div>
+        <!-- Контент -->
+        <div class="container">
+            <div class="row mt-1">
+                <div class="col-lg-2">
+                    <!-- Пустой блок на усмотрение -->
+                </div>
+                <div class="col-lg-10">
+                    <!-- Контент на странице -->
+                    <div class="row">
+                        <!-- Форма фильтров -->
+                        <div class="dropdown mb-2">
+                            
+                    
+                            
+                        </div>
+                        <!-- Карта товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <img src="https://ae04.alicdn.com/kf/Sf3953d332b734d3bb0ac4886baf6a99ae.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <a href="../goods/product.html">
+                                        <p class="card-title">Брюки</p>
+                                    </a>
+                                    <p class="card-text text-truncate">Брюки мужские классические, приталенные Прямые повседневные штаны.</p>
+                                    <p class="product_id">id: 22</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><s>40</s> $</p>
+                                        <p><strong>36.00 $</strong></p>
+                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        <a href="#" class="btn add-to-cart">
+                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Карта товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <img src="https://ae04.alicdn.com/kf/Sdbc3055a956e410cb57641e51abfb5das.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <a href="#">
+                                        <p class="card-title">Шлепанцы</p>
+                                    </a>
+                                    <p class="card-text text-truncate">Шлепанцы Old Money.</p>
+                                    <p class="product_id">id: 228</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><s>100</s> $</p>
+                                        <p><strong>90.00 $</strong></p>
+                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        <a href="#" class="btn add-to-cart">
+                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Карта товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <img src="https://basket-15.wbbasket.ru/vol2318/part231862/231862066/images/big/1.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <a href="#">
+                                        <p class="card-title">Рубашка</p>
+                                    </a>
+                                    <p class="card-text text-truncate">Рубашка с длинным рукавом хлопок, old money.</p>
+                                    <p class="product_id">id: 17</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><s>60</s> $</p>
+                                        <p><strong>54.00 $</strong></p>
+                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        <a href="#" class="btn">
+                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Карта товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <img src="https://images.shafastatic.net/1347802363" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <a href="#">
+                                        <p class="card-title">обувь</p>
+                                    </a>
+                                    <p class="card-text text-truncate">Замшевые мужские туфли качественные стильные, дорого смотрятся, стиль old money .</p>
+                                    <p class="product_id">id: 5</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><s>120</s> $</p>
+                                        <p><strong>100.00 $</strong></p>
+                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        <a href="#" class="btn">
+                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Карта товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <img src="https://ir-3.ozone.ru/s3/multimedia-1-d/c1000/7057058989.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <a href="#">
+                                        <p class="card-title">Акссесуары</p>
+                                    </a>
+                                    <p class="card-text text-truncate">Casio Часы наручные Кварцевые Vintage Old Money.</p>
+                                    <p class="product_id">id: 15</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><s>100</s> $</p>
+                                        <p><strong>90.00 $</strong></p>
+                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        <a href="#" class="btn">
+                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Карта товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <img src="https://cdn-images.farfetch-contents.com/20/89/83/56/20898356_50910430_1000.jpg   " class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <a href="#">
+                                        <p class="card-title">верхная одежда</p>
+                                    </a>
+                                    <p class="card-text text-truncate">Polo Ralph Lauren двубортное пальто из смесовой шерсти</p>
+                                    <p class="product_id">id: 2</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><s>400</s> $</p>
+                                        <p><strong>360.00 $</strong></p>
+                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        <a href="#" class="btn">
+                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- след стр эти кнопки нефига не работают какой гений поставил ? -->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center my-4">
+                            <div class="custom-shadow d-flex">
+                                <li class="page-item disabled">
+                                  <a class="page-link">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                  <a class="page-link" href="#">Next</a>
+                                  <!-- стемейтин кнопканы нах койдын ? -->
+                                </li>
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">OLD MONEY STORE &copy; я больше не буду покупать харамные акции </p>
+        </div>
+    </footer>
+    <script src="../deps/js/jquery/jquery-3.7.0.min.js"></script>
+    <script src="../deps/js/jquery-events.js"></script>
+    <script src="../deps/js/jquery-ajax.js"></script>
+    <script src="../deps/js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
